@@ -9,8 +9,8 @@
     "lint": "next lint",
     "compile": "hardhat compile --config hardhat.config.cjs",
     "test": "hardhat test --config hardhat.config.cjs",
-    "deploy": "hardhat ignition deploy ignition/modules/MusicNadToken.ts --network monadTestnet --config hardhat.config.cjs",
-    "deploy:local": "hardhat ignition deploy ignition/modules/MusicNadToken.ts --config hardhat.config.cjs"
+    "deploy": "hardhat ignition deploy ignition/modules/MusicNadToken.js --network monadTestnet --config hardhat.config.cjs",
+    "deploy:local": "hardhat ignition deploy ignition/modules/MusicNadToken.js --config hardhat.config.cjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.80.7",
