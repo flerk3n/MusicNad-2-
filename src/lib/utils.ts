@@ -41,11 +41,14 @@ export function calculateScore(guess: string, songTitle: string): number {
 // Playlist handling with real YouTube video IDs
 export const playlistConfig = {
   "Bollywood": [
-    { id: "RgKAFK5djSk", title: "Waka Waka - Shakira" },
-    { id: "kJQP7kiw5Fk", title: "Despacito - Luis Fonsi" },
-    { id: "OPf0YbXqDm0", title: "Uptown Funk - Mark Ronson ft. Bruno Mars" },
-    { id: "hT_nvWreIhg", title: "Counting Stars - OneRepublic" },
-    { id: "CevxZvSJLk8", title: "Roar - Katy Perry" }
+    { id: "jHNNMj5bNQw", title: "Kabira - Pritam, Tochi Raina" },
+    { id: "Ax0G_P2dSBw", title: "Zinda - Siddharth Mahadevan" },
+    { id: "NUo8CKI34o4", title: "Tum hi ho - Arijit Singh" },
+    { id: "fVkRKY2PhTQ", title: "Badtameez Dil  - Benny Dayal" },
+    { id: "LK7-_dgAVQE", title: "Tauba Tauba - Karan Aujla" },
+    { id: "3u6lLWGjFLY", title: "Naina - Diljit Singh" },
+    { id: "jFGKJBPFdUA", title: "Apna Time Aayega - Divine" },
+    { id: "k4yXQkG2s1E", title: "Kala Chashma - Badshah Neha Kakkar " }
   ],
   "Hip-Hop/Rap": [
     { id: "dQw4w9WgXcQ", title: "Never Gonna Give You Up - Rick Astley" },
