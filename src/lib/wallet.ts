@@ -1,6 +1,6 @@
 import { createConfig, http } from 'wagmi';
 import { defineChain } from 'viem';
-import { injected } from 'wagmi/connectors';
+import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 
 // Define Monad Testnet chain
 export const monadTestnet = defineChain({
@@ -25,16 +25,12 @@ export const monadTestnet = defineChain({
   testnet: true,
 });
 
-export const config = createConfig({
+export const config = getDefaultConfig({
+  appName: 'MusicNad',
+  projectId: 'YOUR_PROJECT_ID', // You'll need to get this from WalletConnect Cloud
   chains: [monadTestnet],
-  connectors: [
-    injected({
-      target: 'metaMask',
-    }),
-  ],
   transports: {
     [monadTestnet.id]: http('https://testnet-rpc.monad.xyz'),
   },
   ssr: true,
-  syncConnectedChain: true,
 }); 

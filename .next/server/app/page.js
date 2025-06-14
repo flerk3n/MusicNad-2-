@@ -223,7 +223,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Header: () => (/* binding */ Header)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/wagmi/dist/esm/hooks/useAccount.js\");\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/wagmi/dist/esm/hooks/useConnect.js\");\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/wagmi/dist/esm/hooks/useDisconnect.js\");\n/* __next_internal_client_entry_do_not_use__ Header auto */ \n\nconst Header = ()=>{\n    const { address, isConnected } = (0,wagmi__WEBPACK_IMPORTED_MODULE_1__.useAccount)();\n    const { connect, connectors } = (0,wagmi__WEBPACK_IMPORTED_MODULE_2__.useConnect)();\n    const { disconnect } = (0,wagmi__WEBPACK_IMPORTED_MODULE_3__.useDisconnect)();\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"p-4 bg-gray-800/50 backdrop-blur-sm text-white text-sm flex justify-between items-center\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex items-center gap-2\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"text-2xl\",\n                        children: \"\\uD83C\\uDFB5\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                        lineNumber: 13,\n                        columnNumber: 9\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                        className: \"text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent\",\n                        children: \"MusicNad\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                        lineNumber: 14,\n                        columnNumber: 9\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                lineNumber: 12,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex items-center gap-4\",\n                children: isConnected ? /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                    className: \"flex items-center gap-2\",\n                    children: [\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                            className: \"text-green-400\",\n                            children: \"●\"\n                        }, void 0, false, {\n                            fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                            lineNumber: 22,\n                            columnNumber: 13\n                        }, undefined),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"span\", {\n                            children: [\n                                \"Wallet: \",\n                                address?.slice(0, 6),\n                                \"...\",\n                                address?.slice(-4)\n                            ]\n                        }, void 0, true, {\n                            fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                            lineNumber: 23,\n                            columnNumber: 13\n                        }, undefined),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                            onClick: ()=>disconnect(),\n                            className: \"ml-2 text-red-400 hover:text-red-300 transition-colors\",\n                            children: \"Disconnect\"\n                        }, void 0, false, {\n                            fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                            lineNumber: 24,\n                            columnNumber: 13\n                        }, undefined)\n                    ]\n                }, void 0, true, {\n                    fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                    lineNumber: 21,\n                    columnNumber: 11\n                }, undefined) : /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                    onClick: ()=>connect({\n                            connector: connectors[0]\n                        }),\n                    className: \"bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 px-4 py-2 rounded-lg font-semibold transition-all transform hover:scale-105\",\n                    children: \"Connect Wallet\"\n                }, void 0, false, {\n                    fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                    lineNumber: 32,\n                    columnNumber: 11\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                lineNumber: 19,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n        lineNumber: 11,\n        columnNumber: 5\n    }, undefined);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvY29tcG9uZW50cy9IZWFkZXIudHN4IiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7QUFFOEQ7QUFFdkQsTUFBTUcsU0FBUztJQUNwQixNQUFNLEVBQUVDLE9BQU8sRUFBRUMsV0FBVyxFQUFFLEdBQUdMLGlEQUFVQTtJQUMzQyxNQUFNLEVBQUVNLE9BQU8sRUFBRUMsVUFBVSxFQUFFLEdBQUdOLGlEQUFVQTtJQUMxQyxNQUFNLEVBQUVPLFVBQVUsRUFBRSxHQUFHTixvREFBYUE7SUFFcEMscUJBQ0UsOERBQUNPO1FBQUlDLFdBQVU7OzBCQUNiLDhEQUFDRDtnQkFBSUMsV0FBVTs7a0NBQ2IsOERBQUNEO3dCQUFJQyxXQUFVO2tDQUFXOzs7Ozs7a0NBQzFCLDhEQUFDQzt3QkFBR0QsV0FBVTtrQ0FBK0Y7Ozs7Ozs7Ozs7OzswQkFLL0csOERBQUNEO2dCQUFJQyxXQUFVOzBCQUNaTCw0QkFDQyw4REFBQ0k7b0JBQUlDLFdBQVU7O3NDQUNiLDhEQUFDRTs0QkFBS0YsV0FBVTtzQ0FBaUI7Ozs7OztzQ0FDakMsOERBQUNFOztnQ0FBSztnQ0FBU1IsU0FBU1MsTUFBTSxHQUFHO2dDQUFHO2dDQUFJVCxTQUFTUyxNQUFNLENBQUM7Ozs7Ozs7c0NBQ3hELDhEQUFDQzs0QkFDQ0MsU0FBUyxJQUFNUDs0QkFDZkUsV0FBVTtzQ0FDWDs7Ozs7Ozs7Ozs7OENBS0gsOERBQUNJO29CQUNDQyxTQUFTLElBQU1ULFFBQVE7NEJBQUVVLFdBQVdULFVBQVUsQ0FBQyxFQUFFO3dCQUFDO29CQUNsREcsV0FBVTs4QkFDWDs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFPWCxFQUFFIiwic291cmNlcyI6WyIvaG9tZS9oZWxsb2ZyaWVuZC9Eb2N1bWVudHMvUHJvamVjdHNzc3Nzc3Nzcy9Nb25hZEJsaXR6L2hhcmRoYXQtbW9uYWQvc3JjL2NvbXBvbmVudHMvSGVhZGVyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIGNsaWVudCc7XG5cbmltcG9ydCB7IHVzZUFjY291bnQsIHVzZUNvbm5lY3QsIHVzZURpc2Nvbm5lY3QgfSBmcm9tICd3YWdtaSc7XG5cbmV4cG9ydCBjb25zdCBIZWFkZXIgPSAoKSA9PiB7XG4gIGNvbnN0IHsgYWRkcmVzcywgaXNDb25uZWN0ZWQgfSA9IHVzZUFjY291bnQoKTtcbiAgY29uc3QgeyBjb25uZWN0LCBjb25uZWN0b3JzIH0gPSB1c2VDb25uZWN0KCk7XG4gIGNvbnN0IHsgZGlzY29ubmVjdCB9ID0gdXNlRGlzY29ubmVjdCgpO1xuXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctZ3JheS04MDAvNTAgYmFja2Ryb3AtYmx1ci1zbSB0ZXh0LXdoaXRlIHRleHQtc20gZmxleCBqdXN0aWZ5LWJldHdlZW4gaXRlbXMtY2VudGVyXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGxcIj7wn461PC9kaXY+XG4gICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtYm9sZCBiZy1ncmFkaWVudC10by1yIGZyb20tcHVycGxlLTQwMCB0by1waW5rLTQwMCBiZy1jbGlwLXRleHQgdGV4dC10cmFuc3BhcmVudFwiPlxuICAgICAgICAgIE11c2ljTmFkXG4gICAgICAgIDwvaDE+XG4gICAgICA8L2Rpdj5cbiAgICAgIFxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNFwiPlxuICAgICAgICB7aXNDb25uZWN0ZWQgPyAoXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1ncmVlbi00MDBcIj7il488L3NwYW4+XG4gICAgICAgICAgICA8c3Bhbj5XYWxsZXQ6IHthZGRyZXNzPy5zbGljZSgwLCA2KX0uLi57YWRkcmVzcz8uc2xpY2UoLTQpfTwvc3Bhbj5cbiAgICAgICAgICAgIDxidXR0b24gXG4gICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGRpc2Nvbm5lY3QoKX0gXG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cIm1sLTIgdGV4dC1yZWQtNDAwIGhvdmVyOnRleHQtcmVkLTMwMCB0cmFuc2l0aW9uLWNvbG9yc1wiXG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIERpc2Nvbm5lY3RcbiAgICAgICAgICAgIDwvYnV0dG9uPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICApIDogKFxuICAgICAgICAgIDxidXR0b24gXG4gICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBjb25uZWN0KHsgY29ubmVjdG9yOiBjb25uZWN0b3JzWzBdIH0pfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwiYmctZ3JhZGllbnQtdG8tciBmcm9tLWJsdWUtNTAwIHRvLXB1cnBsZS01MDAgaG92ZXI6ZnJvbS1ibHVlLTYwMCBob3Zlcjp0by1wdXJwbGUtNjAwIHB4LTQgcHktMiByb3VuZGVkLWxnIGZvbnQtc2VtaWJvbGQgdHJhbnNpdGlvbi1hbGwgdHJhbnNmb3JtIGhvdmVyOnNjYWxlLTEwNVwiXG4gICAgICAgICAgPlxuICAgICAgICAgICAgQ29ubmVjdCBXYWxsZXRcbiAgICAgICAgICA8L2J1dHRvbj5cbiAgICAgICAgKX1cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufTsgIl0sIm5hbWVzIjpbInVzZUFjY291bnQiLCJ1c2VDb25uZWN0IiwidXNlRGlzY29ubmVjdCIsIkhlYWRlciIsImFkZHJlc3MiLCJpc0Nvbm5lY3RlZCIsImNvbm5lY3QiLCJjb25uZWN0b3JzIiwiZGlzY29ubmVjdCIsImRpdiIsImNsYXNzTmFtZSIsImgxIiwic3BhbiIsInNsaWNlIiwiYnV0dG9uIiwib25DbGljayIsImNvbm5lY3RvciJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./src/components/Header.tsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Header: () => (/* binding */ Header)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @rainbow-me/rainbowkit */ \"(ssr)/./node_modules/@rainbow-me/rainbowkit/dist/index.js\");\n/* __next_internal_client_entry_do_not_use__ Header auto */ \n\nconst Header = ()=>{\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"p-4 bg-gray-800/50 backdrop-blur-sm text-white text-sm flex justify-between items-center\",\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex items-center gap-2\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"text-2xl\",\n                        children: \"\\uD83C\\uDFB5\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                        lineNumber: 9,\n                        columnNumber: 9\n                    }, undefined),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                        className: \"text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent\",\n                        children: \"MusicNad\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                        lineNumber: 10,\n                        columnNumber: 9\n                    }, undefined)\n                ]\n            }, void 0, true, {\n                fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                lineNumber: 8,\n                columnNumber: 7\n            }, undefined),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex items-center gap-4\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_1__.ConnectButton, {}, void 0, false, {\n                    fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                    lineNumber: 16,\n                    columnNumber: 9\n                }, undefined)\n            }, void 0, false, {\n                fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n                lineNumber: 15,\n                columnNumber: 7\n            }, undefined)\n        ]\n    }, void 0, true, {\n        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/Header.tsx\",\n        lineNumber: 7,\n        columnNumber: 5\n    }, undefined);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvY29tcG9uZW50cy9IZWFkZXIudHN4IiwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBRXVEO0FBRWhELE1BQU1DLFNBQVM7SUFDcEIscUJBQ0UsOERBQUNDO1FBQUlDLFdBQVU7OzBCQUNiLDhEQUFDRDtnQkFBSUMsV0FBVTs7a0NBQ2IsOERBQUNEO3dCQUFJQyxXQUFVO2tDQUFXOzs7Ozs7a0NBQzFCLDhEQUFDQzt3QkFBR0QsV0FBVTtrQ0FBK0Y7Ozs7Ozs7Ozs7OzswQkFLL0csOERBQUNEO2dCQUFJQyxXQUFVOzBCQUNiLDRFQUFDSCxpRUFBYUE7Ozs7Ozs7Ozs7Ozs7Ozs7QUFJdEIsRUFBRSIsInNvdXJjZXMiOlsiL2hvbWUvaGVsbG9mcmllbmQvRG9jdW1lbnRzL1Byb2plY3Rzc3Nzc3Nzc3MvTW9uYWRCbGl0ei9oYXJkaGF0LW1vbmFkL3NyYy9jb21wb25lbnRzL0hlYWRlci50c3giXSwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBjbGllbnQnO1xuXG5pbXBvcnQgeyBDb25uZWN0QnV0dG9uIH0gZnJvbSAnQHJhaW5ib3ctbWUvcmFpbmJvd2tpdCc7XG5cbmV4cG9ydCBjb25zdCBIZWFkZXIgPSAoKSA9PiB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYmctZ3JheS04MDAvNTAgYmFja2Ryb3AtYmx1ci1zbSB0ZXh0LXdoaXRlIHRleHQtc20gZmxleCBqdXN0aWZ5LWJldHdlZW4gaXRlbXMtY2VudGVyXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGxcIj7wn461PC9kaXY+XG4gICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtYm9sZCBiZy1ncmFkaWVudC10by1yIGZyb20tcHVycGxlLTQwMCB0by1waW5rLTQwMCBiZy1jbGlwLXRleHQgdGV4dC10cmFuc3BhcmVudFwiPlxuICAgICAgICAgIE11c2ljTmFkXG4gICAgICAgIDwvaDE+XG4gICAgICA8L2Rpdj5cbiAgICAgIFxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNFwiPlxuICAgICAgICA8Q29ubmVjdEJ1dHRvbiAvPlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59OyAiXSwibmFtZXMiOlsiQ29ubmVjdEJ1dHRvbiIsIkhlYWRlciIsImRpdiIsImNsYXNzTmFtZSIsImgxIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./src/components/Header.tsx\n");
 
 /***/ }),
 
@@ -234,7 +234,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Providers: () => (/* binding */ Providers)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/wagmi/dist/esm/context.js\");\n/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @tanstack/react-query */ \"(ssr)/./node_modules/@tanstack/query-core/build/modern/queryClient.js\");\n/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @tanstack/react-query */ \"(ssr)/./node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js\");\n/* harmony import */ var _lib_wallet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/lib/wallet */ \"(ssr)/./src/lib/wallet.ts\");\n/* __next_internal_client_entry_do_not_use__ Providers auto */ \n\n\n\n\nconst queryClient = new _tanstack_react_query__WEBPACK_IMPORTED_MODULE_3__.QueryClient({\n    defaultOptions: {\n        queries: {\n            staleTime: 1000 * 60 * 5,\n            retry: false\n        }\n    }\n});\nfunction Providers({ children }) {\n    const [mounted, setMounted] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)({\n        \"Providers.useEffect\": ()=>{\n            setMounted(true);\n        }\n    }[\"Providers.useEffect\"], []);\n    if (!mounted) {\n        return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n            className: \"min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center\",\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"text-white text-center\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"text-6xl mb-4\",\n                        children: \"\\uD83C\\uDFB5\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n                        lineNumber: 32,\n                        columnNumber: 11\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"text-xl\",\n                        children: \"Loading MusicNad...\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n                        lineNumber: 33,\n                        columnNumber: 11\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n                lineNumber: 31,\n                columnNumber: 9\n            }, this)\n        }, void 0, false, {\n            fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n            lineNumber: 30,\n            columnNumber: 7\n        }, this);\n    }\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(wagmi__WEBPACK_IMPORTED_MODULE_4__.WagmiProvider, {\n        config: _lib_wallet__WEBPACK_IMPORTED_MODULE_2__.config,\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_5__.QueryClientProvider, {\n            client: queryClient,\n            children: children\n        }, void 0, false, {\n            fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n            lineNumber: 41,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n        lineNumber: 40,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvY29tcG9uZW50cy9XYWdtaVByb3ZpZGVyLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7O0FBRXVEO0FBQ2pCO0FBQ21DO0FBQ25DO0FBTXRDLE1BQU1NLGNBQWMsSUFBSUgsOERBQVdBLENBQUM7SUFDbENJLGdCQUFnQjtRQUNkQyxTQUFTO1lBQ1BDLFdBQVcsT0FBTyxLQUFLO1lBQ3ZCQyxPQUFPO1FBQ1Q7SUFDRjtBQUNGO0FBRU8sU0FBU0MsVUFBVSxFQUFFQyxRQUFRLEVBQWtCO0lBQ3BELE1BQU0sQ0FBQ0MsU0FBU0MsV0FBVyxHQUFHZCwrQ0FBUUEsQ0FBQztJQUV2Q0MsZ0RBQVNBOytCQUFDO1lBQ1JhLFdBQVc7UUFDYjs4QkFBRyxFQUFFO0lBRUwsSUFBSSxDQUFDRCxTQUFTO1FBQ1oscUJBQ0UsOERBQUNFO1lBQUlDLFdBQVU7c0JBQ2IsNEVBQUNEO2dCQUFJQyxXQUFVOztrQ0FDYiw4REFBQ0Q7d0JBQUlDLFdBQVU7a0NBQWdCOzs7Ozs7a0NBQy9CLDhEQUFDRDt3QkFBSUMsV0FBVTtrQ0FBVTs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFJakM7SUFFQSxxQkFDRSw4REFBQ2QsZ0RBQWFBO1FBQUNHLFFBQVFBLCtDQUFNQTtrQkFDM0IsNEVBQUNELHNFQUFtQkE7WUFBQ2EsUUFBUVg7c0JBQzFCTTs7Ozs7Ozs7Ozs7QUFJVCIsInNvdXJjZXMiOlsiL2hvbWUvaGVsbG9mcmllbmQvRG9jdW1lbnRzL1Byb2plY3Rzc3Nzc3Nzc3MvTW9uYWRCbGl0ei9oYXJkaGF0LW1vbmFkL3NyYy9jb21wb25lbnRzL1dhZ21pUHJvdmlkZXIudHN4Il0sInNvdXJjZXNDb250ZW50IjpbIid1c2UgY2xpZW50JztcblxuaW1wb3J0IHsgUmVhY3ROb2RlLCB1c2VTdGF0ZSwgdXNlRWZmZWN0IH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgV2FnbWlQcm92aWRlciB9IGZyb20gJ3dhZ21pJztcbmltcG9ydCB7IFF1ZXJ5Q2xpZW50LCBRdWVyeUNsaWVudFByb3ZpZGVyIH0gZnJvbSAnQHRhbnN0YWNrL3JlYWN0LXF1ZXJ5JztcbmltcG9ydCB7IGNvbmZpZyB9IGZyb20gJ0AvbGliL3dhbGxldCc7XG5cbmludGVyZmFjZSBQcm92aWRlcnNQcm9wcyB7XG4gIGNoaWxkcmVuOiBSZWFjdE5vZGU7XG59XG5cbmNvbnN0IHF1ZXJ5Q2xpZW50ID0gbmV3IFF1ZXJ5Q2xpZW50KHtcbiAgZGVmYXVsdE9wdGlvbnM6IHtcbiAgICBxdWVyaWVzOiB7XG4gICAgICBzdGFsZVRpbWU6IDEwMDAgKiA2MCAqIDUsIC8vIDUgbWludXRlc1xuICAgICAgcmV0cnk6IGZhbHNlLFxuICAgIH0sXG4gIH0sXG59KTtcblxuZXhwb3J0IGZ1bmN0aW9uIFByb3ZpZGVycyh7IGNoaWxkcmVuIH06IFByb3ZpZGVyc1Byb3BzKSB7XG4gIGNvbnN0IFttb3VudGVkLCBzZXRNb3VudGVkXSA9IHVzZVN0YXRlKGZhbHNlKTtcblxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIHNldE1vdW50ZWQodHJ1ZSk7XG4gIH0sIFtdKTtcblxuICBpZiAoIW1vdW50ZWQpIHtcbiAgICByZXR1cm4gKFxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJtaW4taC1zY3JlZW4gYmctZ3JhZGllbnQtdG8tYnIgZnJvbS1zbGF0ZS05MDAgdmlhLXB1cnBsZS05MDAgdG8tc2xhdGUtOTAwIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC13aGl0ZSB0ZXh0LWNlbnRlclwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC02eGwgbWItNFwiPvCfjrU8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteGxcIj5Mb2FkaW5nIE11c2ljTmFkLi4uPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgKTtcbiAgfVxuXG4gIHJldHVybiAoXG4gICAgPFdhZ21pUHJvdmlkZXIgY29uZmlnPXtjb25maWd9PlxuICAgICAgPFF1ZXJ5Q2xpZW50UHJvdmlkZXIgY2xpZW50PXtxdWVyeUNsaWVudH0+XG4gICAgICAgIHtjaGlsZHJlbn1cbiAgICAgIDwvUXVlcnlDbGllbnRQcm92aWRlcj5cbiAgICA8L1dhZ21pUHJvdmlkZXI+XG4gICk7XG59ICJdLCJuYW1lcyI6WyJ1c2VTdGF0ZSIsInVzZUVmZmVjdCIsIldhZ21pUHJvdmlkZXIiLCJRdWVyeUNsaWVudCIsIlF1ZXJ5Q2xpZW50UHJvdmlkZXIiLCJjb25maWciLCJxdWVyeUNsaWVudCIsImRlZmF1bHRPcHRpb25zIiwicXVlcmllcyIsInN0YWxlVGltZSIsInJldHJ5IiwiUHJvdmlkZXJzIiwiY2hpbGRyZW4iLCJtb3VudGVkIiwic2V0TW91bnRlZCIsImRpdiIsImNsYXNzTmFtZSIsImNsaWVudCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./src/components/WagmiProvider.tsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Providers: () => (/* binding */ Providers)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/wagmi/dist/esm/context.js\");\n/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @tanstack/react-query */ \"(ssr)/./node_modules/@tanstack/query-core/build/modern/queryClient.js\");\n/* harmony import */ var _tanstack_react_query__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @tanstack/react-query */ \"(ssr)/./node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js\");\n/* harmony import */ var _rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @rainbow-me/rainbowkit */ \"(ssr)/./node_modules/@rainbow-me/rainbowkit/dist/index.js\");\n/* harmony import */ var _rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @rainbow-me/rainbowkit */ \"(ssr)/./node_modules/@rainbow-me/rainbowkit/dist/chunk-RZWDCITT.js\");\n/* harmony import */ var _lib_wallet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/lib/wallet */ \"(ssr)/./src/lib/wallet.ts\");\n/* harmony import */ var _rainbow_me_rainbowkit_styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @rainbow-me/rainbowkit/styles.css */ \"(ssr)/./node_modules/@rainbow-me/rainbowkit/dist/index.css\");\n/* __next_internal_client_entry_do_not_use__ Providers auto */ \n\n\n\n\n\n\nconst queryClient = new _tanstack_react_query__WEBPACK_IMPORTED_MODULE_4__.QueryClient({\n    defaultOptions: {\n        queries: {\n            staleTime: 1000 * 60 * 5,\n            retry: false\n        }\n    }\n});\nfunction Providers({ children }) {\n    const [mounted, setMounted] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false);\n    (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)({\n        \"Providers.useEffect\": ()=>{\n            setMounted(true);\n        }\n    }[\"Providers.useEffect\"], []);\n    if (!mounted) {\n        return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n            className: \"min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center\",\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"text-white text-center\",\n                children: [\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"text-6xl mb-4\",\n                        children: \"\\uD83C\\uDFB5\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n                        lineNumber: 35,\n                        columnNumber: 11\n                    }, this),\n                    /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                        className: \"text-xl\",\n                        children: \"Loading MusicNad...\"\n                    }, void 0, false, {\n                        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n                        lineNumber: 36,\n                        columnNumber: 11\n                    }, this)\n                ]\n            }, void 0, true, {\n                fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n                lineNumber: 34,\n                columnNumber: 9\n            }, this)\n        }, void 0, false, {\n            fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n            lineNumber: 33,\n            columnNumber: 7\n        }, this);\n    }\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(wagmi__WEBPACK_IMPORTED_MODULE_5__.WagmiProvider, {\n        config: _lib_wallet__WEBPACK_IMPORTED_MODULE_2__.config,\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_tanstack_react_query__WEBPACK_IMPORTED_MODULE_6__.QueryClientProvider, {\n            client: queryClient,\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(_rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_7__.RainbowKitProvider, {\n                theme: (0,_rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_8__.darkTheme)({\n                    accentColor: '#7c3aed',\n                    accentColorForeground: 'white',\n                    borderRadius: 'medium',\n                    fontStack: 'system',\n                    overlayBlur: 'small'\n                }),\n                children: children\n            }, void 0, false, {\n                fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n                lineNumber: 45,\n                columnNumber: 9\n            }, this)\n        }, void 0, false, {\n            fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n            lineNumber: 44,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"/home/hellofriend/Documents/Projectsssssssss/MonadBlitz/hardhat-monad/src/components/WagmiProvider.tsx\",\n        lineNumber: 43,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvY29tcG9uZW50cy9XYWdtaVByb3ZpZGVyLnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7O0FBRXVEO0FBQ2pCO0FBQ21DO0FBQ0Y7QUFDakM7QUFFSztBQU0zQyxNQUFNUSxjQUFjLElBQUlMLDhEQUFXQSxDQUFDO0lBQ2xDTSxnQkFBZ0I7UUFDZEMsU0FBUztZQUNQQyxXQUFXLE9BQU8sS0FBSztZQUN2QkMsT0FBTztRQUNUO0lBQ0Y7QUFDRjtBQUVPLFNBQVNDLFVBQVUsRUFBRUMsUUFBUSxFQUFrQjtJQUNwRCxNQUFNLENBQUNDLFNBQVNDLFdBQVcsR0FBR2hCLCtDQUFRQSxDQUFDO0lBRXZDQyxnREFBU0E7K0JBQUM7WUFDUmUsV0FBVztRQUNiOzhCQUFHLEVBQUU7SUFFTCxJQUFJLENBQUNELFNBQVM7UUFDWixxQkFDRSw4REFBQ0U7WUFBSUMsV0FBVTtzQkFDYiw0RUFBQ0Q7Z0JBQUlDLFdBQVU7O2tDQUNiLDhEQUFDRDt3QkFBSUMsV0FBVTtrQ0FBZ0I7Ozs7OztrQ0FDL0IsOERBQUNEO3dCQUFJQyxXQUFVO2tDQUFVOzs7Ozs7Ozs7Ozs7Ozs7OztJQUlqQztJQUVBLHFCQUNFLDhEQUFDaEIsZ0RBQWFBO1FBQUNLLFFBQVFBLCtDQUFNQTtrQkFDM0IsNEVBQUNILHNFQUFtQkE7WUFBQ2UsUUFBUVg7c0JBQzNCLDRFQUFDSCxzRUFBa0JBO2dCQUNqQmUsT0FBT2QsaUVBQVNBLENBQUM7b0JBQ2ZlLGFBQWE7b0JBQ2JDLHVCQUF1QjtvQkFDdkJDLGNBQWM7b0JBQ2RDLFdBQVc7b0JBQ1hDLGFBQWE7Z0JBQ2Y7MEJBRUNYOzs7Ozs7Ozs7Ozs7Ozs7O0FBS1giLCJzb3VyY2VzIjpbIi9ob21lL2hlbGxvZnJpZW5kL0RvY3VtZW50cy9Qcm9qZWN0c3Nzc3Nzc3NzL01vbmFkQmxpdHovaGFyZGhhdC1tb25hZC9zcmMvY29tcG9uZW50cy9XYWdtaVByb3ZpZGVyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIGNsaWVudCc7XG5cbmltcG9ydCB7IFJlYWN0Tm9kZSwgdXNlU3RhdGUsIHVzZUVmZmVjdCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFdhZ21pUHJvdmlkZXIgfSBmcm9tICd3YWdtaSc7XG5pbXBvcnQgeyBRdWVyeUNsaWVudCwgUXVlcnlDbGllbnRQcm92aWRlciB9IGZyb20gJ0B0YW5zdGFjay9yZWFjdC1xdWVyeSc7XG5pbXBvcnQgeyBSYWluYm93S2l0UHJvdmlkZXIsIGRhcmtUaGVtZSB9IGZyb20gJ0ByYWluYm93LW1lL3JhaW5ib3draXQnO1xuaW1wb3J0IHsgY29uZmlnIH0gZnJvbSAnQC9saWIvd2FsbGV0JztcblxuaW1wb3J0ICdAcmFpbmJvdy1tZS9yYWluYm93a2l0L3N0eWxlcy5jc3MnO1xuXG5pbnRlcmZhY2UgUHJvdmlkZXJzUHJvcHMge1xuICBjaGlsZHJlbjogUmVhY3ROb2RlO1xufVxuXG5jb25zdCBxdWVyeUNsaWVudCA9IG5ldyBRdWVyeUNsaWVudCh7XG4gIGRlZmF1bHRPcHRpb25zOiB7XG4gICAgcXVlcmllczoge1xuICAgICAgc3RhbGVUaW1lOiAxMDAwICogNjAgKiA1LCAvLyA1IG1pbnV0ZXNcbiAgICAgIHJldHJ5OiBmYWxzZSxcbiAgICB9LFxuICB9LFxufSk7XG5cbmV4cG9ydCBmdW5jdGlvbiBQcm92aWRlcnMoeyBjaGlsZHJlbiB9OiBQcm92aWRlcnNQcm9wcykge1xuICBjb25zdCBbbW91bnRlZCwgc2V0TW91bnRlZF0gPSB1c2VTdGF0ZShmYWxzZSk7XG5cbiAgdXNlRWZmZWN0KCgpID0+IHtcbiAgICBzZXRNb3VudGVkKHRydWUpO1xuICB9LCBbXSk7XG5cbiAgaWYgKCFtb3VudGVkKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWluLWgtc2NyZWVuIGJnLWdyYWRpZW50LXRvLWJyIGZyb20tc2xhdGUtOTAwIHZpYS1wdXJwbGUtOTAwIHRvLXNsYXRlLTkwMCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlclwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtd2hpdGUgdGV4dC1jZW50ZXJcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtNnhsIG1iLTRcIj7wn461PC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXhsXCI+TG9hZGluZyBNdXNpY05hZC4uLjwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICk7XG4gIH1cblxuICByZXR1cm4gKFxuICAgIDxXYWdtaVByb3ZpZGVyIGNvbmZpZz17Y29uZmlnfT5cbiAgICAgIDxRdWVyeUNsaWVudFByb3ZpZGVyIGNsaWVudD17cXVlcnlDbGllbnR9PlxuICAgICAgICA8UmFpbmJvd0tpdFByb3ZpZGVyXG4gICAgICAgICAgdGhlbWU9e2RhcmtUaGVtZSh7XG4gICAgICAgICAgICBhY2NlbnRDb2xvcjogJyM3YzNhZWQnLFxuICAgICAgICAgICAgYWNjZW50Q29sb3JGb3JlZ3JvdW5kOiAnd2hpdGUnLFxuICAgICAgICAgICAgYm9yZGVyUmFkaXVzOiAnbWVkaXVtJyxcbiAgICAgICAgICAgIGZvbnRTdGFjazogJ3N5c3RlbScsXG4gICAgICAgICAgICBvdmVybGF5Qmx1cjogJ3NtYWxsJyxcbiAgICAgICAgICB9KX1cbiAgICAgICAgPlxuICAgICAgICAgIHtjaGlsZHJlbn1cbiAgICAgICAgPC9SYWluYm93S2l0UHJvdmlkZXI+XG4gICAgICA8L1F1ZXJ5Q2xpZW50UHJvdmlkZXI+XG4gICAgPC9XYWdtaVByb3ZpZGVyPlxuICApO1xufSAiXSwibmFtZXMiOlsidXNlU3RhdGUiLCJ1c2VFZmZlY3QiLCJXYWdtaVByb3ZpZGVyIiwiUXVlcnlDbGllbnQiLCJRdWVyeUNsaWVudFByb3ZpZGVyIiwiUmFpbmJvd0tpdFByb3ZpZGVyIiwiZGFya1RoZW1lIiwiY29uZmlnIiwicXVlcnlDbGllbnQiLCJkZWZhdWx0T3B0aW9ucyIsInF1ZXJpZXMiLCJzdGFsZVRpbWUiLCJyZXRyeSIsIlByb3ZpZGVycyIsImNoaWxkcmVuIiwibW91bnRlZCIsInNldE1vdW50ZWQiLCJkaXYiLCJjbGFzc05hbWUiLCJjbGllbnQiLCJ0aGVtZSIsImFjY2VudENvbG9yIiwiYWNjZW50Q29sb3JGb3JlZ3JvdW5kIiwiYm9yZGVyUmFkaXVzIiwiZm9udFN0YWNrIiwib3ZlcmxheUJsdXIiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./src/components/WagmiProvider.tsx\n");
 
 /***/ }),
 
@@ -267,7 +267,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   config: () => (/* binding */ config),\n/* harmony export */   monadTestnet: () => (/* binding */ monadTestnet)\n/* harmony export */ });\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/@wagmi/core/dist/esm/createConfig.js\");\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/viem/_esm/clients/transports/http.js\");\n/* harmony import */ var viem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! viem */ \"(ssr)/./node_modules/viem/_esm/utils/chain/defineChain.js\");\n/* harmony import */ var wagmi_connectors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! wagmi/connectors */ \"(ssr)/./node_modules/@wagmi/core/dist/esm/connectors/injected.js\");\n\n\n\n// Define Monad Testnet chain\nconst monadTestnet = (0,viem__WEBPACK_IMPORTED_MODULE_0__.defineChain)({\n    id: 10143,\n    name: 'Monad Testnet',\n    nativeCurrency: {\n        decimals: 18,\n        name: 'MON',\n        symbol: 'MON'\n    },\n    rpcUrls: {\n        default: {\n            http: [\n                'https://testnet-rpc.monad.xyz'\n            ]\n        }\n    },\n    blockExplorers: {\n        default: {\n            name: 'Monad Explorer',\n            url: 'https://testnet.monadexplorer.com'\n        }\n    },\n    testnet: true\n});\nconst config = (0,wagmi__WEBPACK_IMPORTED_MODULE_1__.createConfig)({\n    chains: [\n        monadTestnet\n    ],\n    connectors: [\n        (0,wagmi_connectors__WEBPACK_IMPORTED_MODULE_2__.injected)({\n            target: 'metaMask'\n        })\n    ],\n    transports: {\n        [monadTestnet.id]: (0,wagmi__WEBPACK_IMPORTED_MODULE_3__.http)('https://testnet-rpc.monad.xyz')\n    },\n    ssr: true,\n    syncConnectedChain: true\n});\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvbGliL3dhbGxldC50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBMkM7QUFDUjtBQUNTO0FBRTVDLDZCQUE2QjtBQUN0QixNQUFNSSxlQUFlRixpREFBV0EsQ0FBQztJQUN0Q0csSUFBSTtJQUNKQyxNQUFNO0lBQ05DLGdCQUFnQjtRQUNkQyxVQUFVO1FBQ1ZGLE1BQU07UUFDTkcsUUFBUTtJQUNWO0lBQ0FDLFNBQVM7UUFDUEMsU0FBUztZQUNQVixNQUFNO2dCQUFDO2FBQWdDO1FBQ3pDO0lBQ0Y7SUFDQVcsZ0JBQWdCO1FBQ2RELFNBQVM7WUFDUEwsTUFBTTtZQUNOTyxLQUFLO1FBQ1A7SUFDRjtJQUNBQyxTQUFTO0FBQ1gsR0FBRztBQUVJLE1BQU1DLFNBQVNmLG1EQUFZQSxDQUFDO0lBQ2pDZ0IsUUFBUTtRQUFDWjtLQUFhO0lBQ3RCYSxZQUFZO1FBQ1ZkLDBEQUFRQSxDQUFDO1lBQ1BlLFFBQVE7UUFDVjtLQUNEO0lBQ0RDLFlBQVk7UUFDVixDQUFDZixhQUFhQyxFQUFFLENBQUMsRUFBRUosMkNBQUlBLENBQUM7SUFDMUI7SUFDQW1CLEtBQUs7SUFDTEMsb0JBQW9CO0FBQ3RCLEdBQUciLCJzb3VyY2VzIjpbIi9ob21lL2hlbGxvZnJpZW5kL0RvY3VtZW50cy9Qcm9qZWN0c3Nzc3Nzc3NzL01vbmFkQmxpdHovaGFyZGhhdC1tb25hZC9zcmMvbGliL3dhbGxldC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVDb25maWcsIGh0dHAgfSBmcm9tICd3YWdtaSc7XG5pbXBvcnQgeyBkZWZpbmVDaGFpbiB9IGZyb20gJ3ZpZW0nO1xuaW1wb3J0IHsgaW5qZWN0ZWQgfSBmcm9tICd3YWdtaS9jb25uZWN0b3JzJztcblxuLy8gRGVmaW5lIE1vbmFkIFRlc3RuZXQgY2hhaW5cbmV4cG9ydCBjb25zdCBtb25hZFRlc3RuZXQgPSBkZWZpbmVDaGFpbih7XG4gIGlkOiAxMDE0MyxcbiAgbmFtZTogJ01vbmFkIFRlc3RuZXQnLFxuICBuYXRpdmVDdXJyZW5jeToge1xuICAgIGRlY2ltYWxzOiAxOCxcbiAgICBuYW1lOiAnTU9OJyxcbiAgICBzeW1ib2w6ICdNT04nLFxuICB9LFxuICBycGNVcmxzOiB7XG4gICAgZGVmYXVsdDoge1xuICAgICAgaHR0cDogWydodHRwczovL3Rlc3RuZXQtcnBjLm1vbmFkLnh5eiddLFxuICAgIH0sXG4gIH0sXG4gIGJsb2NrRXhwbG9yZXJzOiB7XG4gICAgZGVmYXVsdDoge1xuICAgICAgbmFtZTogJ01vbmFkIEV4cGxvcmVyJyxcbiAgICAgIHVybDogJ2h0dHBzOi8vdGVzdG5ldC5tb25hZGV4cGxvcmVyLmNvbScsXG4gICAgfSxcbiAgfSxcbiAgdGVzdG5ldDogdHJ1ZSxcbn0pO1xuXG5leHBvcnQgY29uc3QgY29uZmlnID0gY3JlYXRlQ29uZmlnKHtcbiAgY2hhaW5zOiBbbW9uYWRUZXN0bmV0XSxcbiAgY29ubmVjdG9yczogW1xuICAgIGluamVjdGVkKHtcbiAgICAgIHRhcmdldDogJ21ldGFNYXNrJyxcbiAgICB9KSxcbiAgXSxcbiAgdHJhbnNwb3J0czoge1xuICAgIFttb25hZFRlc3RuZXQuaWRdOiBodHRwKCdodHRwczovL3Rlc3RuZXQtcnBjLm1vbmFkLnh5eicpLFxuICB9LFxuICBzc3I6IHRydWUsXG4gIHN5bmNDb25uZWN0ZWRDaGFpbjogdHJ1ZSxcbn0pOyAiXSwibmFtZXMiOlsiY3JlYXRlQ29uZmlnIiwiaHR0cCIsImRlZmluZUNoYWluIiwiaW5qZWN0ZWQiLCJtb25hZFRlc3RuZXQiLCJpZCIsIm5hbWUiLCJuYXRpdmVDdXJyZW5jeSIsImRlY2ltYWxzIiwic3ltYm9sIiwicnBjVXJscyIsImRlZmF1bHQiLCJibG9ja0V4cGxvcmVycyIsInVybCIsInRlc3RuZXQiLCJjb25maWciLCJjaGFpbnMiLCJjb25uZWN0b3JzIiwidGFyZ2V0IiwidHJhbnNwb3J0cyIsInNzciIsInN5bmNDb25uZWN0ZWRDaGFpbiJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(ssr)/./src/lib/wallet.ts\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   config: () => (/* binding */ config),\n/* harmony export */   monadTestnet: () => (/* binding */ monadTestnet)\n/* harmony export */ });\n/* harmony import */ var wagmi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! wagmi */ \"(ssr)/./node_modules/viem/_esm/clients/transports/http.js\");\n/* harmony import */ var viem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! viem */ \"(ssr)/./node_modules/viem/_esm/utils/chain/defineChain.js\");\n/* harmony import */ var _rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @rainbow-me/rainbowkit */ \"(ssr)/./node_modules/@rainbow-me/rainbowkit/dist/index.js\");\n\n\n\n// Define Monad Testnet chain\nconst monadTestnet = (0,viem__WEBPACK_IMPORTED_MODULE_0__.defineChain)({\n    id: 10143,\n    name: 'Monad Testnet',\n    nativeCurrency: {\n        decimals: 18,\n        name: 'MON',\n        symbol: 'MON'\n    },\n    rpcUrls: {\n        default: {\n            http: [\n                'https://testnet-rpc.monad.xyz'\n            ]\n        }\n    },\n    blockExplorers: {\n        default: {\n            name: 'Monad Explorer',\n            url: 'https://testnet.monadexplorer.com'\n        }\n    },\n    testnet: true\n});\nconst config = (0,_rainbow_me_rainbowkit__WEBPACK_IMPORTED_MODULE_1__.getDefaultConfig)({\n    appName: 'MusicNad',\n    projectId: 'YOUR_PROJECT_ID',\n    chains: [\n        monadTestnet\n    ],\n    transports: {\n        [monadTestnet.id]: (0,wagmi__WEBPACK_IMPORTED_MODULE_2__.http)('https://testnet-rpc.monad.xyz')\n    },\n    ssr: true\n});\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvbGliL3dhbGxldC50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUEyQztBQUNSO0FBQ3VCO0FBRTFELDZCQUE2QjtBQUN0QixNQUFNRyxlQUFlRixpREFBV0EsQ0FBQztJQUN0Q0csSUFBSTtJQUNKQyxNQUFNO0lBQ05DLGdCQUFnQjtRQUNkQyxVQUFVO1FBQ1ZGLE1BQU07UUFDTkcsUUFBUTtJQUNWO0lBQ0FDLFNBQVM7UUFDUEMsU0FBUztZQUNQVixNQUFNO2dCQUFDO2FBQWdDO1FBQ3pDO0lBQ0Y7SUFDQVcsZ0JBQWdCO1FBQ2RELFNBQVM7WUFDUEwsTUFBTTtZQUNOTyxLQUFLO1FBQ1A7SUFDRjtJQUNBQyxTQUFTO0FBQ1gsR0FBRztBQUVJLE1BQU1DLFNBQVNaLHdFQUFnQkEsQ0FBQztJQUNyQ2EsU0FBUztJQUNUQyxXQUFXO0lBQ1hDLFFBQVE7UUFBQ2Q7S0FBYTtJQUN0QmUsWUFBWTtRQUNWLENBQUNmLGFBQWFDLEVBQUUsQ0FBQyxFQUFFSiwyQ0FBSUEsQ0FBQztJQUMxQjtJQUNBbUIsS0FBSztBQUNQLEdBQUciLCJzb3VyY2VzIjpbIi9ob21lL2hlbGxvZnJpZW5kL0RvY3VtZW50cy9Qcm9qZWN0c3Nzc3Nzc3NzL01vbmFkQmxpdHovaGFyZGhhdC1tb25hZC9zcmMvbGliL3dhbGxldC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBjcmVhdGVDb25maWcsIGh0dHAgfSBmcm9tICd3YWdtaSc7XG5pbXBvcnQgeyBkZWZpbmVDaGFpbiB9IGZyb20gJ3ZpZW0nO1xuaW1wb3J0IHsgZ2V0RGVmYXVsdENvbmZpZyB9IGZyb20gJ0ByYWluYm93LW1lL3JhaW5ib3draXQnO1xuXG4vLyBEZWZpbmUgTW9uYWQgVGVzdG5ldCBjaGFpblxuZXhwb3J0IGNvbnN0IG1vbmFkVGVzdG5ldCA9IGRlZmluZUNoYWluKHtcbiAgaWQ6IDEwMTQzLFxuICBuYW1lOiAnTW9uYWQgVGVzdG5ldCcsXG4gIG5hdGl2ZUN1cnJlbmN5OiB7XG4gICAgZGVjaW1hbHM6IDE4LFxuICAgIG5hbWU6ICdNT04nLFxuICAgIHN5bWJvbDogJ01PTicsXG4gIH0sXG4gIHJwY1VybHM6IHtcbiAgICBkZWZhdWx0OiB7XG4gICAgICBodHRwOiBbJ2h0dHBzOi8vdGVzdG5ldC1ycGMubW9uYWQueHl6J10sXG4gICAgfSxcbiAgfSxcbiAgYmxvY2tFeHBsb3JlcnM6IHtcbiAgICBkZWZhdWx0OiB7XG4gICAgICBuYW1lOiAnTW9uYWQgRXhwbG9yZXInLFxuICAgICAgdXJsOiAnaHR0cHM6Ly90ZXN0bmV0Lm1vbmFkZXhwbG9yZXIuY29tJyxcbiAgICB9LFxuICB9LFxuICB0ZXN0bmV0OiB0cnVlLFxufSk7XG5cbmV4cG9ydCBjb25zdCBjb25maWcgPSBnZXREZWZhdWx0Q29uZmlnKHtcbiAgYXBwTmFtZTogJ011c2ljTmFkJyxcbiAgcHJvamVjdElkOiAnWU9VUl9QUk9KRUNUX0lEJywgLy8gWW91J2xsIG5lZWQgdG8gZ2V0IHRoaXMgZnJvbSBXYWxsZXRDb25uZWN0IENsb3VkXG4gIGNoYWluczogW21vbmFkVGVzdG5ldF0sXG4gIHRyYW5zcG9ydHM6IHtcbiAgICBbbW9uYWRUZXN0bmV0LmlkXTogaHR0cCgnaHR0cHM6Ly90ZXN0bmV0LXJwYy5tb25hZC54eXonKSxcbiAgfSxcbiAgc3NyOiB0cnVlLFxufSk7ICJdLCJuYW1lcyI6WyJodHRwIiwiZGVmaW5lQ2hhaW4iLCJnZXREZWZhdWx0Q29uZmlnIiwibW9uYWRUZXN0bmV0IiwiaWQiLCJuYW1lIiwibmF0aXZlQ3VycmVuY3kiLCJkZWNpbWFscyIsInN5bWJvbCIsInJwY1VybHMiLCJkZWZhdWx0IiwiYmxvY2tFeHBsb3JlcnMiLCJ1cmwiLCJ0ZXN0bmV0IiwiY29uZmlnIiwiYXBwTmFtZSIsInByb2plY3RJZCIsImNoYWlucyIsInRyYW5zcG9ydHMiLCJzc3IiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./src/lib/wallet.ts\n");
 
 /***/ }),
 
@@ -315,6 +315,105 @@ module.exports = require("next/dist/server/app-render/work-unit-async-storage.ex
 
 /***/ }),
 
+/***/ "assert":
+/*!*************************!*\
+  !*** external "assert" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
+/***/ "buffer":
+/*!*************************!*\
+  !*** external "buffer" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("buffer");
+
+/***/ }),
+
+/***/ "crypto":
+/*!*************************!*\
+  !*** external "crypto" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("crypto");
+
+/***/ }),
+
+/***/ "events":
+/*!*************************!*\
+  !*** external "events" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("events");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "http":
+/*!***********************!*\
+  !*** external "http" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
+/***/ "module":
+/*!*************************!*\
+  !*** external "module" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("module");
+
+/***/ }),
+
+/***/ "net":
+/*!**********************!*\
+  !*** external "net" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("net");
+
+/***/ }),
+
 /***/ "next/dist/compiled/next-server/app-page.runtime.dev.js":
 /*!*************************************************************************!*\
   !*** external "next/dist/compiled/next-server/app-page.runtime.dev.js" ***!
@@ -337,6 +436,17 @@ module.exports = require("node:crypto");
 
 /***/ }),
 
+/***/ "os":
+/*!*********************!*\
+  !*** external "os" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("os");
+
+/***/ }),
+
 /***/ "path":
 /*!***********************!*\
   !*** external "path" ***!
@@ -345,6 +455,61 @@ module.exports = require("node:crypto");
 
 "use strict";
 module.exports = require("path");
+
+/***/ }),
+
+/***/ "pino-pretty":
+/*!******************************!*\
+  !*** external "pino-pretty" ***!
+  \******************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("pino-pretty");
+
+/***/ }),
+
+/***/ "punycode":
+/*!***************************!*\
+  !*** external "punycode" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("punycode");
+
+/***/ }),
+
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "tls":
+/*!**********************!*\
+  !*** external "tls" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tls");
+
+/***/ }),
+
+/***/ "tty":
+/*!**********************!*\
+  !*** external "tty" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
 
 /***/ }),
 
@@ -357,6 +522,39 @@ module.exports = require("path");
 "use strict";
 module.exports = require("url");
 
+/***/ }),
+
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("util");
+
+/***/ }),
+
+/***/ "worker_threads":
+/*!*********************************!*\
+  !*** external "worker_threads" ***!
+  \*********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("worker_threads");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
+
 /***/ })
 
 };
@@ -366,7 +564,7 @@ module.exports = require("url");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/viem","vendor-chunks/@noble","vendor-chunks/next","vendor-chunks/@wagmi","vendor-chunks/@tanstack","vendor-chunks/abitype","vendor-chunks/wagmi","vendor-chunks/ox","vendor-chunks/@swc","vendor-chunks/use-sync-external-store","vendor-chunks/zustand","vendor-chunks/mipd","vendor-chunks/eventemitter3","vendor-chunks/string-similarity"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fpage&page=%2Fpage&appPaths=%2Fpage&pagePath=private-next-app-dir%2Fpage.tsx&appDir=%2Fhome%2Fhellofriend%2FDocuments%2FProjectsssssssss%2FMonadBlitz%2Fhardhat-monad%2Fsrc%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2Fhome%2Fhellofriend%2FDocuments%2FProjectsssssssss%2FMonadBlitz%2Fhardhat-monad&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/@rainbow-me","vendor-chunks/viem","vendor-chunks/@noble","vendor-chunks/next","vendor-chunks/ox","vendor-chunks/abitype","vendor-chunks/@wagmi","vendor-chunks/@tanstack","vendor-chunks/wagmi","vendor-chunks/react-remove-scroll","vendor-chunks/@vanilla-extract","vendor-chunks/@swc","vendor-chunks/use-sync-external-store","vendor-chunks/react-style-singleton","vendor-chunks/react-remove-scroll-bar","vendor-chunks/use-callback-ref","vendor-chunks/zustand","vendor-chunks/mipd","vendor-chunks/cuer","vendor-chunks/use-sidecar","vendor-chunks/eventemitter3","vendor-chunks/tslib","vendor-chunks/qr","vendor-chunks/@adraffy","vendor-chunks/ua-parser-js","vendor-chunks/string-similarity","vendor-chunks/get-nonce"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader/index.js?name=app%2Fpage&page=%2Fpage&appPaths=%2Fpage&pagePath=private-next-app-dir%2Fpage.tsx&appDir=%2Fhome%2Fhellofriend%2FDocuments%2FProjectsssssssss%2FMonadBlitz%2Fhardhat-monad%2Fsrc%2Fapp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=%2Fhome%2Fhellofriend%2FDocuments%2FProjectsssssssss%2FMonadBlitz%2Fhardhat-monad&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
 module.exports = __webpack_exports__;
 
 })();
