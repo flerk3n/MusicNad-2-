@@ -1,9 +1,9 @@
 import { writeContract, readContract } from 'wagmi/actions';
 import { config } from '@/lib/wallet';
-import MusicNadTokenABI from '@/abi/MusicNadToken.json';
+import MusicNadGameABI from '@/abi/MusicNadGame.json';
 
-// This will be updated after deployment
-export const MUSICNAD_TOKEN_ADDRESS = '0x0000000000000000000000000000000000000000' as const;
+// Updated with NEW deployed contract address
+export const MUSICNAD_TOKEN_ADDRESS = '0xeb510c04BAB32b540378211D93E37134db04d04b' as const;
 
 export const TOKEN_REWARDS = {
   perfectMatch: 1,    // 1 token for exact song + singer match
@@ -11,19 +11,70 @@ export const TOKEN_REWARDS = {
   singerOnly: 0.2,    // 0.2 tokens for singer only
 };
 
+// NEW: Players submit their game results to earn pending rewards
+export async function submitGameResult(
+  totalScore: number, 
+  genre: string
+) {
+  try {
+    const result = await writeContract(config, {
+      address: MUSICNAD_TOKEN_ADDRESS,
+      abi: MusicNadGameABI.abi,
+      functionName: 'submitGameResult',
+      args: [BigInt(totalScore), genre],
+    });
+    
+    return result;
+  } catch (error) {
+    console.error('Error submitting game result:', error);
+    throw error;
+  }
+}
+
+// NEW: Players claim their pending rewards
+export async function claimReward() {
+  try {
+    const result = await writeContract(config, {
+      address: MUSICNAD_TOKEN_ADDRESS,
+      abi: MusicNadGameABI.abi,
+      functionName: 'claimReward',
+      args: [],
+    });
+    
+    return result;
+  } catch (error) {
+    console.error('Error claiming reward:', error);
+    throw error;
+  }
+}
+
+// Get pending rewards for a player
+export async function getPendingRewards(playerAddress: string) {
+  try {
+    const result = await readContract(config, {
+      address: MUSICNAD_TOKEN_ADDRESS,
+      abi: MusicNadGameABI.abi,
+      functionName: 'getPendingRewards',
+      args: [playerAddress],
+    }) as bigint;
+    
+    return result;
+  } catch (error) {
+    console.error('Error getting pending rewards:', error);
+    throw error;
+  }
+}
+
+// LEGACY: Owner manual reward (kept for special cases)
 export async function rewardPlayer(
   playerAddress: string, 
   totalScore: number, 
   genre: string
 ) {
   try {
-    if (MUSICNAD_TOKEN_ADDRESS === '0x0000000000000000000000000000000000000000') {
-      throw new Error('Contract not deployed yet. Please deploy the contract first.');
-    }
-
     const result = await writeContract(config, {
       address: MUSICNAD_TOKEN_ADDRESS,
-      abi: MusicNadTokenABI.abi,
+      abi: MusicNadGameABI.abi,
       functionName: 'rewardPlayer',
       args: [playerAddress, BigInt(totalScore), genre],
     });
@@ -37,27 +88,19 @@ export async function rewardPlayer(
 
 export async function getPlayerStats(playerAddress: string) {
   try {
-    if (MUSICNAD_TOKEN_ADDRESS === '0x0000000000000000000000000000000000000000') {
-      return {
-        totalScore: 0n,
-        totalGames: 0n,
-        favoriteGenre: '',
-        tokenBalance: 0n
-      };
-    }
-
     const result = await readContract(config, {
       address: MUSICNAD_TOKEN_ADDRESS,
-      abi: MusicNadTokenABI.abi,
+      abi: MusicNadGameABI.abi,
       functionName: 'getPlayerStats',
       args: [playerAddress],
-    });
+    }) as [bigint, bigint, string, bigint, bigint];
     
     return {
-      totalScore: result[0] as bigint,
-      totalGames: result[1] as bigint,
-      favoriteGenre: result[2] as string,
-      tokenBalance: result[3] as bigint
+      totalScore: result[0],
+      totalGames: result[1],
+      favoriteGenre: result[2],
+      monBalance: result[3],
+      pendingRewards: result[4]  // NEW: pending rewards
     };
   } catch (error) {
     console.error('Error getting player stats:', error);
@@ -67,27 +110,18 @@ export async function getPlayerStats(playerAddress: string) {
 
 export async function getGlobalStats() {
   try {
-    if (MUSICNAD_TOKEN_ADDRESS === '0x0000000000000000000000000000000000000000') {
-      return {
-        totalRewards: 0n,
-        totalGames: 0n,
-        totalSupply: 0n,
-        remainingSupply: 0n
-      };
-    }
-
     const result = await readContract(config, {
       address: MUSICNAD_TOKEN_ADDRESS,
-      abi: MusicNadTokenABI.abi,
+      abi: MusicNadGameABI.abi,
       functionName: 'getGlobalStats',
       args: [],
-    });
+    }) as [bigint, bigint, bigint, bigint];
     
     return {
-      totalRewards: result[0] as bigint,
-      totalGames: result[1] as bigint,
-      totalSupply: result[2] as bigint,
-      remainingSupply: result[3] as bigint
+      totalRewards: result[0],
+      totalGames: result[1],
+      contractBalance: result[2],
+      ownerBalance: result[3]
     };
   } catch (error) {
     console.error('Error getting global stats:', error);
@@ -95,17 +129,19 @@ export async function getGlobalStats() {
   }
 }
 
-// Helper function to format token amounts
+// Helper function to format MON token amounts
 export function formatTokenAmount(amount: bigint): string {
   return (Number(amount) / 1e18).toFixed(2);
 }
 
 // Contract deployment info
 export const CONTRACT_INFO = {
-  name: 'MusicNadToken',
-  symbol: 'MNAD',
+  name: 'MusicNadGame',
+  symbol: 'MON',
   address: MUSICNAD_TOKEN_ADDRESS,
   network: 'Monad Testnet',
   chainId: 10143,
-  deployed: false, // Will be updated after deployment
+  deployed: true,
+  deployedAt: new Date('2024-06-14'),
+  rewardRate: '0.1 MON per point'
 }; 

@@ -8,12 +8,14 @@ contract MusicNadGame is Ownable, ReentrancyGuard {
     mapping(address => uint256) public playerScores;
     mapping(address => uint256) public gamesPlayed;
     mapping(address => string) public favoriteGenres;
+    mapping(address => uint256) public pendingRewards; // New: Track pending rewards
     
     uint256 public totalTokensRewarded;
     uint256 public totalGamesPlayed;
     
     event TokensRewarded(address indexed player, uint256 amount, uint256 score, string genre);
     event GameCompleted(address indexed player, uint256 score, string genre);
+    event RewardClaimed(address indexed player, uint256 amount);
     event FundsDeposited(address indexed sender, uint256 amount);
     event FundsWithdrawn(address indexed owner, uint256 amount);
     
@@ -27,7 +29,55 @@ contract MusicNadGame is Ownable, ReentrancyGuard {
         emit FundsDeposited(msg.sender, msg.value);
     }
     
-    // Reward player with MON tokens
+    // Players can submit their game results and earn pending rewards
+    function submitGameResult(
+        uint256 score, 
+        string memory genre
+    ) external nonReentrant whenNotPaused {
+        require(score > 0, "Score must be positive");
+        require(score <= 50, "Score cannot exceed 50");
+        require(bytes(genre).length > 0, "Genre required");
+        
+        // Calculate reward amount (0.1 MON per point)
+        uint256 rewardAmount = (score * 1 ether) / 10; // 0.1 MON per point
+        
+        require(address(this).balance >= rewardAmount, "Insufficient contract balance");
+        
+        // Update player stats
+        playerScores[msg.sender] += score;
+        gamesPlayed[msg.sender] += 1;
+        favoriteGenres[msg.sender] = genre;
+        
+        // Add to pending rewards
+        pendingRewards[msg.sender] += rewardAmount;
+        
+        // Update global stats
+        totalGamesPlayed += 1;
+        
+        emit GameCompleted(msg.sender, score, genre);
+    }
+    
+    // Players can claim their pending rewards
+    function claimReward() external nonReentrant {
+        uint256 rewardAmount = pendingRewards[msg.sender];
+        require(rewardAmount > 0, "No pending rewards");
+        require(address(this).balance >= rewardAmount, "Insufficient contract balance");
+        
+        // Reset pending rewards
+        pendingRewards[msg.sender] = 0;
+        
+        // Update total rewards distributed
+        totalTokensRewarded += rewardAmount;
+        
+        // Transfer MON tokens to player
+        (bool success, ) = payable(msg.sender).call{value: rewardAmount}("");
+        require(success, "Token transfer failed");
+        
+        emit RewardClaimed(msg.sender, rewardAmount);
+        emit TokensRewarded(msg.sender, rewardAmount, 0, "");
+    }
+    
+    // Owner can still manually reward players (for special cases)
     function rewardPlayer(
         address player, 
         uint256 score, 
@@ -38,7 +88,6 @@ contract MusicNadGame is Ownable, ReentrancyGuard {
         require(bytes(genre).length > 0, "Genre required");
         
         // Calculate reward amount (0.1 MON per point)
-        // This gives reasonable rewards: 5 points = 0.5 MON
         uint256 rewardAmount = (score * 1 ether) / 10; // 0.1 MON per point
         
         require(address(this).balance >= rewardAmount, "Insufficient contract balance");
@@ -46,13 +95,13 @@ contract MusicNadGame is Ownable, ReentrancyGuard {
         // Update player stats
         playerScores[player] += score;
         gamesPlayed[player] += 1;
-        favoriteGenres[player] = genre; // Store latest genre played
+        favoriteGenres[player] = genre;
         
         // Update global stats
         totalTokensRewarded += rewardAmount;
         totalGamesPlayed += 1;
         
-        // Transfer MON tokens to player
+        // Transfer MON tokens directly
         (bool success, ) = payable(player).call{value: rewardAmount}("");
         require(success, "Token transfer failed");
         
@@ -64,13 +113,15 @@ contract MusicNadGame is Ownable, ReentrancyGuard {
         uint256 totalScore, 
         uint256 totalGames, 
         string memory favoriteGenre,
-        uint256 monBalance
+        uint256 monBalance,
+        uint256 pendingReward
     ) {
         return (
             playerScores[player], 
             gamesPlayed[player], 
             favoriteGenres[player],
-            player.balance
+            player.balance,
+            pendingRewards[player]
         );
     }
     
@@ -136,6 +187,11 @@ contract MusicNadGame is Ownable, ReentrancyGuard {
     // Get contract balance
     function getContractBalance() external view returns (uint256) {
         return address(this).balance;
+    }
+    
+    // Get pending rewards for a player
+    function getPendingRewards(address player) external view returns (uint256) {
+        return pendingRewards[player];
     }
     
     // Fallback function to receive MON tokens

@@ -6,6 +6,7 @@ import { Header } from '@/components/Header';
 import { GenreCards } from '@/components/GenreCards';
 import { CDPlayer } from '@/components/CDPlayer';
 import { GuessBox } from '@/components/GuessBox';
+import { submitGameResult, claimReward, getPendingRewards, formatTokenAmount } from '@/lib/contract';
 import { 
   GameState, 
   initialGameState, 
@@ -15,11 +16,19 @@ import {
 } from '@/lib/utils';
 
 export default function Home() {
-  const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
   const [gameState, setGameState] = useState<GameState>(initialGameState);
   const [countdown, setCountdown] = useState(0);
   const [lastGuessScore, setLastGuessScore] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const [isSubmittingGame, setIsSubmittingGame] = useState(false);
+  const [isClaimingReward, setIsClaimingReward] = useState(false);
+  const [gameSubmitted, setGameSubmitted] = useState(false);
+  const [rewardClaimed, setRewardClaimed] = useState(false);
+  const [transactionHash, setTransactionHash] = useState<string>('');
+  const [pendingRewards, setPendingRewards] = useState<bigint>(0n);
+  const [submitError, setSubmitError] = useState<string>('');
+  const [claimError, setClaimError] = useState<string>('');
 
   // Handle hydration
   useEffect(() => {
@@ -50,14 +59,14 @@ export default function Home() {
   }, [countdown, gameState.gamePhase, mounted]);
 
   const handleGenreSelect = (genre: Genre) => {
-    const videoId = getRandomVideoId('');
+    const songData = getRandomVideoId(genre);
     setGameState(prev => ({
       ...prev,
       currentGenre: genre,
       gamePhase: 'countdown',
       songsPlayed: 1,
-      currentVideoId: videoId,
-      currentSongTitle: `Sample Song ${Math.floor(Math.random() * 100)}`,
+      currentVideoId: songData.videoId,
+      currentSongTitle: songData.title,
     }));
     setCountdown(3);
   };
@@ -95,11 +104,11 @@ export default function Home() {
           isPlaying: false
         }));
       } else {
-        const nextVideoId = getRandomVideoId('');
+        const nextSongData = getRandomVideoId(gameState.currentGenre);
         setGameState(prev => ({
           ...prev,
-          currentVideoId: nextVideoId,
-          currentSongTitle: `Sample Song ${Math.floor(Math.random() * 100)}`,
+          currentVideoId: nextSongData.videoId,
+          currentSongTitle: nextSongData.title,
           songsPlayed: prev.songsPlayed + 1,
           gamePhase: 'countdown'
         }));
@@ -111,6 +120,70 @@ export default function Home() {
   const resetGame = () => {
     setGameState({ ...initialGameState, gamePhase: 'genre-select' });
     setLastGuessScore(0);
+    setGameSubmitted(false);
+    setRewardClaimed(false);
+    setTransactionHash('');
+    setSubmitError('');
+    setClaimError('');
+  };
+
+    const handleSubmitGame = async () => {
+    if (!address || !gameState.totalScore) return;
+    
+    setIsSubmittingGame(true);
+    setSubmitError('');
+    
+    try {
+      // Call the smart contract to submit game results
+      const result = await submitGameResult(
+        gameState.totalScore,
+        gameState.currentGenre
+      );
+      
+      setTransactionHash(result);
+      setGameSubmitted(true);
+      
+      // Show success message
+      console.log('Game submitted successfully!', result);
+      
+    } catch (error: any) {
+      console.error('Error submitting game:', error);
+      setSubmitError(
+        error.message.includes('Score cannot exceed 50') 
+          ? 'Invalid score submitted. Please try again.'
+          : error.message || 'Failed to submit game. Please try again.'
+      );
+    } finally {
+      setIsSubmittingGame(false);
+    }
+  };
+
+    const handleClaimReward = async () => {
+    if (!address) return;
+    
+    setIsClaimingReward(true);
+    setClaimError('');
+    
+    try {
+      // Call the smart contract to claim rewards
+      const result = await claimReward();
+      
+      setTransactionHash(result);
+      setRewardClaimed(true);
+      
+      // Show success message
+      console.log('Reward claimed successfully!', result);
+      
+    } catch (error: any) {
+      console.error('Error claiming reward:', error);
+      setClaimError(
+        error.message.includes('No pending rewards') 
+          ? 'No pending rewards to claim. Please submit your game first.'
+          : error.message || 'Failed to claim reward. Please try again.'
+      );
+    } finally {
+      setIsClaimingReward(false);
+    }
   };
 
   if (!mounted) {
@@ -220,16 +293,129 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
               Game Complete!
             </h2>
-            <div className="max-w-md mx-auto bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
+            <div className="max-w-lg mx-auto bg-gray-800/50 p-8 rounded-2xl border border-gray-700">
               <p className="text-2xl font-semibold mb-4">
                 Final Score: {gameState.totalScore}/50
               </p>
-              <p className="text-gray-300 mb-6">
+              <p className="text-gray-300 mb-4">
                 Genre: {gameState.currentGenre}
               </p>
-              <p className="text-sm text-gray-400 mb-6">
-                🎯 Tokens will be sent to your wallet based on your score
-              </p>
+              
+              {/* Reward Information */}
+              <div className="bg-green-500/10 border border-green-500/20 rounded-lg p-4 mb-6">
+                <p className="text-green-300 font-semibold mb-2">
+                  🎯 Your Reward: {formatTokenAmount(BigInt(gameState.totalScore * 100000000000000000))} MON
+                </p>
+                <p className="text-green-200 text-sm">
+                  {gameState.totalScore} points × 0.1 MON = {(gameState.totalScore * 0.1).toFixed(1)} MON
+                </p>
+              </div>
+
+                            {/* Two-Step Reward Process */}
+               {!gameSubmitted && !submitError && (
+                 <button
+                   onClick={handleSubmitGame}
+                   disabled={isSubmittingGame || gameState.totalScore === 0}
+                   className={`
+                     w-full py-3 rounded-lg font-semibold text-lg mb-4 transition-all transform
+                     ${isSubmittingGame || gameState.totalScore === 0
+                       ? 'bg-gray-600 text-gray-400 cursor-not-allowed' 
+                       : 'bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white hover:scale-105 active:scale-95'
+                     }
+                   `}
+                 >
+                   {isSubmittingGame ? (
+                     <div className="flex items-center justify-center gap-2">
+                       <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                       Submitting Game...
+                     </div>
+                   ) : (
+                     '📝 Submit Game Result'
+                   )}
+                 </button>
+               )}
+
+               {gameSubmitted && !rewardClaimed && !claimError && (
+                 <button
+                   onClick={handleClaimReward}
+                   disabled={isClaimingReward}
+                   className={`
+                     w-full py-3 rounded-lg font-semibold text-lg mb-4 transition-all transform
+                     ${isClaimingReward
+                       ? 'bg-gray-600 text-gray-400 cursor-not-allowed' 
+                       : 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white hover:scale-105 active:scale-95'
+                     }
+                   `}
+                 >
+                   {isClaimingReward ? (
+                     <div className="flex items-center justify-center gap-2">
+                       <div className="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+                       Claiming Reward...
+                     </div>
+                   ) : (
+                     '🎁 Claim Your MON Tokens!'
+                   )}
+                 </button>
+               )}
+
+              {/* Success Message */}
+              {rewardClaimed && transactionHash && (
+                <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-4 mb-4">
+                  <p className="text-green-300 font-semibold mb-2">
+                    ✅ Reward Claimed Successfully!
+                  </p>
+                  <p className="text-green-200 text-sm mb-2">
+                    {formatTokenAmount(BigInt(gameState.totalScore * 100000000000000000))} MON sent to your wallet
+                  </p>
+                  <a 
+                    href={`https://testnet.monadexplorer.com/tx/${transactionHash}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-sm underline"
+                  >
+                    View Transaction 📋
+                  </a>
+                </div>
+              )}
+
+                             {/* Submit Error Message */}
+               {submitError && (
+                 <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-4 mb-4">
+                   <p className="text-red-300 font-semibold mb-2">
+                     ❌ Game Submission Failed
+                   </p>
+                   <p className="text-red-200 text-sm">
+                     {submitError}
+                   </p>
+                   <button
+                     onClick={handleSubmitGame}
+                     disabled={isSubmittingGame}
+                     className="mt-2 px-4 py-2 bg-red-500 hover:bg-red-600 rounded text-white text-sm"
+                   >
+                     Try Again
+                   </button>
+                 </div>
+               )}
+
+               {/* Claim Error Message */}
+               {claimError && (
+                 <div className="bg-red-500/20 border border-red-500/30 rounded-lg p-4 mb-4">
+                   <p className="text-red-300 font-semibold mb-2">
+                     ❌ Reward Claim Failed
+                   </p>
+                   <p className="text-red-200 text-sm">
+                     {claimError}
+                   </p>
+                   <button
+                     onClick={handleClaimReward}
+                     disabled={isClaimingReward}
+                     className="mt-2 px-4 py-2 bg-red-500 hover:bg-red-600 rounded text-white text-sm"
+                   >
+                     Try Again
+                   </button>
+                 </div>
+               )}
+
               <button
                 onClick={resetGame}
                 className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"

@@ -38,32 +38,71 @@ export function calculateScore(guess: string, songTitle: string): number {
   return Math.min(score, 10); // cap at 10 points per song
 }
 
-// Playlist handling
+// Playlist handling with real YouTube video IDs
 export const playlistConfig = {
-  "Bollywood": "PLAYLIST_URL_TO_BE_PROVIDED",
-  "Hip-Hop/Rap": "PLAYLIST_URL_TO_BE_PROVIDED",
-  "Rock/Alternative": "PLAYLIST_URL_TO_BE_PROVIDED", 
-  "EDM/Electronic": "PLAYLIST_URL_TO_BE_PROVIDED",
-  "Sufi/Devotional": "PLAYLIST_URL_TO_BE_PROVIDED"
+  "Bollywood": [
+    { id: "RgKAFK5djSk", title: "Waka Waka - Shakira" },
+    { id: "kJQP7kiw5Fk", title: "Despacito - Luis Fonsi" },
+    { id: "OPf0YbXqDm0", title: "Uptown Funk - Mark Ronson ft. Bruno Mars" },
+    { id: "hT_nvWreIhg", title: "Counting Stars - OneRepublic" },
+    { id: "CevxZvSJLk8", title: "Roar - Katy Perry" }
+  ],
+  "Hip-Hop/Rap": [
+    { id: "dQw4w9WgXcQ", title: "Never Gonna Give You Up - Rick Astley" },
+    { id: "9bZkp7q19f0", title: "Gangnam Style - PSY" },
+    { id: "OPf0YbXqDm0", title: "Uptown Funk - Mark Ronson ft. Bruno Mars" },
+    { id: "hT_nvWreIhg", title: "Counting Stars - OneRepublic" },
+    { id: "CevxZvSJLk8", title: "Roar - Katy Perry" }
+  ],
+  "Rock/Alternative": [
+    { id: "fJ9rUzIMcZQ", title: "Bohemian Rhapsody - Queen" },
+    { id: "rY0WxgSXdEE", title: "Sweet Child O' Mine - Guns N' Roses" },
+    { id: "tbU3zdAgiX8", title: "How to Save a Life - The Fray" },
+    { id: "hT_nvWreIhg", title: "Counting Stars - OneRepublic" },
+    { id: "CevxZvSJLk8", title: "Roar - Katy Perry" }
+  ],
+  "EDM/Electronic": [
+    { id: "IcrbM1l_BoI", title: "Wake Me Up - Avicii" },
+    { id: "HyHNuVaZJ-k", title: "Animals - Martin Garrix" },
+    { id: "OPf0YbXqDm0", title: "Uptown Funk - Mark Ronson ft. Bruno Mars" },
+    { id: "hT_nvWreIhg", title: "Counting Stars - OneRepublic" },
+    { id: "CevxZvSJLk8", title: "Roar - Katy Perry" }
+  ],
+  "Sufi/Devotional": [
+    { id: "dQw4w9WgXcQ", title: "Never Gonna Give You Up - Rick Astley" },
+    { id: "kJQP7kiw5Fk", title: "Despacito - Luis Fonsi" },
+    { id: "OPf0YbXqDm0", title: "Uptown Funk - Mark Ronson ft. Bruno Mars" },
+    { id: "hT_nvWreIhg", title: "Counting Stars - OneRepublic" },
+    { id: "CevxZvSJLk8", title: "Roar - Katy Perry" }
+  ]
 };
 
-export function extractPlaylistId(playlistUrl: string): string {
-  const match = playlistUrl.match(/[&?]list=([^&]+)/);
-  return match ? match[1] : '';
+// Track which songs have been used in current game session
+let usedSongs: Set<string> = new Set();
+
+export function getRandomVideoId(genre: string): { videoId: string, title: string } {
+  const genreKey = genre as keyof typeof playlistConfig;
+  const songs = playlistConfig[genreKey] || playlistConfig["Bollywood"]; // fallback
+  
+  // Get unused songs first
+  const availableSongs = songs.filter(song => !usedSongs.has(`${genre}-${song.id}`));
+  
+  // If all songs used, reset the set
+  if (availableSongs.length === 0) {
+    usedSongs.clear();
+    return { videoId: songs[0].id, title: songs[0].title };
+  }
+  
+  // Pick random unused song
+  const randomSong = availableSongs[Math.floor(Math.random() * availableSongs.length)];
+  usedSongs.add(`${genre}-${randomSong.id}`);
+  
+  return { videoId: randomSong.id, title: randomSong.title };
 }
 
-// For now, return sample video IDs for testing
-export function getRandomVideoId(playlistId: string): string {
-  // Sample video IDs for testing (will be replaced with actual playlist fetching)
-  const sampleVideos = [
-    'dQw4w9WgXcQ', // Never Gonna Give You Up
-    '9bZkp7q19f0', // Gangnam Style  
-    'kJQP7kiw5Fk', // Despacito
-    'RgKAFK5djSk', // Waka Waka
-    'hT_nvWreIhg'  // Counting Stars
-  ];
-  
-  return sampleVideos[Math.floor(Math.random() * sampleVideos.length)];
+// Reset used songs when starting new game
+export function resetSongSelection() {
+  usedSongs.clear();
 }
 
 // Game state management
